@@ -48,8 +48,15 @@
 
         // Work around CSS browser issues.
         supportBrowserQuirks();
+		
+			$('#barcode').on('click', function () {
+					alert('yayyy!');
+			});
+
+		
     });
 
+	
     $(document).on('deviceready', function () {
     // Add slight delay to allow DOM rendering to finish.
     // Avoids flicker on slower devices.
