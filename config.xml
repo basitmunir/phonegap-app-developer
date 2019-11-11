@@ -104,7 +104,7 @@
     <plugin name="cordova-plugin-vibration" spec="^2.1.6" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.2.1" />
 	
-	<plugin name="cordova-plugin-wkwebview-engine" spec="^2.2.0" />
+	<plugin name="cordova-plugin-wkwebview-engine-v2" spec="^2.2.0" />
 	
 	<plugin name="pushwoosh-cordova-plugin" spec="^7.18.3">
         <variable name="CAMERA_USAGE_DESCRIPTION" value="Camera used for development purposes" />
