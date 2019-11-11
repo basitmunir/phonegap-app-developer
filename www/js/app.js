@@ -52,10 +52,13 @@
 			$('#barcodeCustom').on('click', function () {
 					cordova.plugins.barcodeScanner.scan(
 						  function (result) {
-							  alert("We got a barcode\n" +
-									"Result: " + result.text + "\n" +
-									"Format: " + result.format + "\n" +
-									"Cancelled: " + result.cancelled);
+							  
+							  $('#barcodeText').html(result.text);
+							  
+							  // alert("We got a barcode\n" +
+									// "Result: " + result.text + "\n" +
+									// "Format: " + result.format + "\n" +
+									// "Cancelled: " + result.cancelled);
 						  },
 						  function (error) {
 							  alert("Scanning failed: " + error);
