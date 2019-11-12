@@ -21,12 +21,15 @@
     </platform>
     <platform name="ios">
         <preference name="Orientation" value="all" />
+		
         <preference name="AutoHideSplashScreen" value="false" />
-		<feature name="CDVWKWebViewEngine">
+		
+	<!--	<feature name="CDVWKWebViewEngine">
 		  <param name="ios-package" value="CDVWKWebViewEngine" />
 		</feature>
  
 		<preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+		-->
         <icon height="167" src="resources/icon/ios/icon-83.5@2x.png" width="167" />
         <icon height="76" src="resources/icon/ios/icon-76.png" width="76" />
         <icon height="152" src="resources/icon/ios/icon-76@2x.png" width="152" />
