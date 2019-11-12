@@ -49,8 +49,11 @@
         // Work around CSS browser issues.
         supportBrowserQuirks();
 		
-			$('#openWebUrl').on('click', function () {
+			$('#openWebUrlBlank').on('click', function () {
 				var ref = window.open('https://pltestmobileapi.azurewebsites.net/FileServer/Index/TestBlob_350de63e-3461-4aed-bd50-ba620f37635b/zip350de63e-3461-4aed-bd50-ba620f37635b/Win10Scorm/course/index.html', '_blank', 'location=false');
+			});
+			$('#openWebUrlSystem').on('click', function () {
+				var ref = window.open('https://pltestmobileapi.azurewebsites.net/FileServer/Index/TestBlob_350de63e-3461-4aed-bd50-ba620f37635b/zip350de63e-3461-4aed-bd50-ba620f37635b/Win10Scorm/course/index.html', '_system', 'location=false');
 			});
 			$('#barcodeCustom').on('click', function () {
 					cordova.plugins.barcodeScanner.scan(
