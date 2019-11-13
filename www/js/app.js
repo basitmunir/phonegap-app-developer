@@ -1,3 +1,7 @@
+
+			
+    
+
 (function () {
 
     /* global $, window */
@@ -8,42 +12,7 @@
     General
 --------------------------------------------------- */
 
-	function initPushwoosh() {
-				var pushwoosh = cordova.require("pushwoosh-cordova-plugin.PushNotification");
-
-			  // Should be called before pushwoosh.onDeviceReady
-			  document.addEventListener('push-notification', function(event) {
-					var notification = event.notification;
-					// handle push open here
-					alert(JSON.stringify(notification));
-				});
-			  
-				// Initialize Pushwoosh. This will trigger all pending push notifications on start.
-				pushwoosh.onDeviceReady({
-					appid: "584C2-DD44E",
-					projectid: "YOUR_FCM_SENDER_ID",
-					serviceName: "MPNS_SERVICE_NAME"
-				});
-				
-				pushwoosh.registerDevice(
-					function(status) {
-						var pushToken = status.pushToken;
-						alert("pushtoken" + pushToken);
-						console.log(pushToken);
-						// handle successful registration here
-				  },
-				  function(status) {
-					// handle registration error here
-						alert("error-registerdevice:" + status);
-						console.log(status);
-						
-						
-				  }
-				);
-
-			}
-			
-    $().ready(function () {
+	$().ready(function () {
     // Add events
         $('#login-form').submit(buildSubmit);
         $('a[target="_system"]').on('click', function (e) {
@@ -134,7 +103,7 @@
     // Avoids flicker on slower devices.
         setTimeout(function () {
 			
-			initPushwoosh();
+				initPushwoosh();
         // allow the screen to dim when returning from the served app
             window.plugins.insomnia.allowSleepAgain();
 
@@ -448,4 +417,40 @@
             document.body.appendChild(element);
         }
     }
+  	function initPushwoosh() {
+				var pushwoosh = cordova.require("pushwoosh-cordova-plugin.PushNotification");
+
+			  // Should be called before pushwoosh.onDeviceReady
+			  document.addEventListener('push-notification', function(event) {
+					var notification = event.notification;
+					// handle push open here
+					alert(JSON.stringify(notification));
+				});
+			  
+				// Initialize Pushwoosh. This will trigger all pending push notifications on start.
+				pushwoosh.onDeviceReady({
+					appid: "584C2-DD44E",
+					projectid: "YOUR_FCM_SENDER_ID",
+					serviceName: "MPNS_SERVICE_NAME"
+				});
+				
+				pushwoosh.registerDevice(
+					function(status) {
+						var pushToken = status.pushToken;
+						alert("pushtoken" + pushToken);
+						console.log(pushToken);
+						// handle successful registration here
+				  },
+				  function(status) {
+					// handle registration error here
+						alert("error-registerdevice:" + status);
+						console.log(status);
+						
+						
+				  }
+				);
+
+			}
+  
+  
 })();
