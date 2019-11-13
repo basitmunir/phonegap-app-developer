@@ -8,6 +8,41 @@
     General
 --------------------------------------------------- */
 
+	function initPushwoosh() {
+				var pushwoosh = cordova.require("pushwoosh-cordova-plugin.PushNotification");
+
+			  // Should be called before pushwoosh.onDeviceReady
+			  document.addEventListener('push-notification', function(event) {
+					var notification = event.notification;
+					// handle push open here
+					alert(JSON.stringify(notification));
+				});
+			  
+				// Initialize Pushwoosh. This will trigger all pending push notifications on start.
+				pushwoosh.onDeviceReady({
+					appid: "584C2-DD44E",
+					projectid: "YOUR_FCM_SENDER_ID",
+					serviceName: "MPNS_SERVICE_NAME"
+				});
+				
+				pushwoosh.registerDevice(
+					function(status) {
+						var pushToken = status.pushToken;
+						alert("pushtoken" + pushToken);
+						console.log(pushToken);
+						// handle successful registration here
+				  },
+				  function(status) {
+					// handle registration error here
+						alert("error-registerdevice:" + status);
+						console.log(status);
+						
+						
+				  }
+				);
+
+			}
+			
     $().ready(function () {
     // Add events
         $('#login-form').submit(buildSubmit);
@@ -48,6 +83,11 @@
 
         // Work around CSS browser issues.
         supportBrowserQuirks();
+
+
+	
+		
+		
 		
 			$('#openWebUrlBlank').on('click', function () {
 				var ref = window.open('https://pltestmobileapi.azurewebsites.net/FileServer/Index/TestBlob_350de63e-3461-4aed-bd50-ba620f37635b/zip350de63e-3461-4aed-bd50-ba620f37635b/Win10Scorm/course/index.html', '_blank', 'location=false');
@@ -93,6 +133,8 @@
     // Add slight delay to allow DOM rendering to finish.
     // Avoids flicker on slower devices.
         setTimeout(function () {
+			
+			initPushwoosh();
         // allow the screen to dim when returning from the served app
             window.plugins.insomnia.allowSleepAgain();
 
